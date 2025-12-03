@@ -16,7 +16,6 @@ result = 0
 
 for rg in rgs:
 
-
     rgBorder = rg.split('-')
 
     for numId in range(int(rgBorder[0]), int(rgBorder[1])+1):
