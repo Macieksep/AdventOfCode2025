@@ -12,8 +12,6 @@ with open("resources/f5_1", "r") as file:
 
             rangeID = currLine.split('-')
 
-
-
             freshID.update(range(int(rangeID[0]), int(rangeID[1])+1))
 
             print("ok")
