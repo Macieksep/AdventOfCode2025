@@ -1,31 +1,26 @@
-# not done yet, some errors occurred ;)
+result_nums = set()
 
-def is_correct(num) -> bool:
+with open('resources/f2', 'r') as file:
+    element = file.readline().strip().split(',')
 
-    num = str(123123123)
+    ranges = list()
 
-    for l in range(1, len(num)):
-        if int(num) % l == 0:
+    for e in element:
+        ranges.append(e.split('-'))
 
-            matchSeq = num[:l]
+    for r in ranges:
+        for num in range(int(r[0]), int(r[1])+1):
 
-            for i in range(0, len(num)//l):
-                if matchSeq != num[i*l:(i+1)*l]:
-                    break
+            num = str(num)
 
-    return False
-
-rgs = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124".split(',')
+            for i in range(2, len(num)+1):
+                if len(num) % i == 0:
+                    if num == num[:len(num)//i]*i:
+                        result_nums.add(num)
 
 result = 0
 
-for rg in rgs:
-
-    rgBorder = rg.split('-')
-
-    for numId in range(int(rgBorder[0]), int(rgBorder[1])+1):
-        if not is_correct(str(numId)):
-            print(numId)
-            result += numId
+for i in result_nums:
+    result += int(i)
 
 print(result)

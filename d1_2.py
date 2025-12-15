@@ -1,4 +1,4 @@
-file = open("resources/f1_1", "r")
+file = open("resources/f1", "r")
 
 curr = 50
 

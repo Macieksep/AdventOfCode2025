@@ -7,7 +7,7 @@ def is_correct(num) -> bool:
     return True
 
 rgs = (
-        open("resources/f2_1", "r")
+        open("resources/f2", "r")
        .read()
        .split(',')
        )
