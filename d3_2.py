@@ -1,27 +1,29 @@
-#Code under construction :)
+with open('resources/f3', 'r') as file:
 
-file = open("resources/f3_1", "r")
+    total = 0
 
-sum = 0
+    for l in file:
 
-for line in file:
+        l = l.strip()
 
-    line = line.strip()
+        result = ''
 
-    num = 0
+        prev_i = -1
 
-    for dig in range(0, 12):
+        while len(result) != 12:
 
-        currentMaxPos = 0 + dig
-        currentMax = 0
+            currMax = -1
 
-        for i in range(currentMaxPos, len(line)-(12-dig)):
-            if int(line[i]) > currentMax:
-                currentMax = int(line[i])
-                currentMaxPos = i
+            for i in range(prev_i+1, len(l)-(11-len(result))):
 
-        num += currentMax * pow(10, 12-dig)
+                now = l[i]
 
-    print(num)
+                if int(l[i]) > currMax:
+                    currMax = int(l[i])
+                    prev_i = i
 
-print(sum)
+            result += str(currMax)
+
+        total += int(result)
+
+    print(total)

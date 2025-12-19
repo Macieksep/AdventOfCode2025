@@ -1,4 +1,4 @@
-file = open("resources/f3_1", "r")
+file = open("resources/f3", "r")
 
 sum = 0
 
