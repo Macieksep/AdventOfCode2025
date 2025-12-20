@@ -1,50 +1,62 @@
-# under construction ;)
-
 # Y X
 factoryMap = []
 
-with open("resources/f4_1", "r") as f:
+with open("resources/f4", "r") as f:
     for l in f:
         r = list(l.strip())
         factoryMap.append(r)
 
-rolls = 0
+result = 0
 
-for Y in range(len(factoryMap)):
-    for X in range(len(factoryMap[Y])):
+while True:
 
-        if factoryMap[Y][X] == '@':
+    rolls = 0
 
-            count = -1
+    to_remove = list(list())
 
-            # xxx
-            #  o
-            #
+    for Y in range(len(factoryMap)):
+        for X in range(len(factoryMap[Y])):
 
-            for i in range(-1, 2):
-                if Y-1 >= 0 and X+i >=0 and X+i < len(factoryMap[Y]):
-                    if factoryMap[Y-1][X+i] == '@':
-                        count += 1
+            if factoryMap[Y][X] == '@':
 
-            #
-            #  o
-            # xxx
+                count = -1
 
-            for i in range(-1, 2):
-                if Y+1 < len(factoryMap) and X+i >=0 and X+i < len(factoryMap[Y]):
-                    if factoryMap[Y+1][X+i] == '@':
-                        count += 1
+                # xxx
+                #  o
+                #
 
-            #
-            # xox
-            #
+                for i in range(-1, 2):
+                    if Y-1 >= 0 and X+i >=0 and X+i < len(factoryMap[Y]):
+                        if factoryMap[Y-1][X+i] == '@':
+                            count += 1
 
-            for i in range(-1, 2):
-                if X+i >= 0 and X+i < len(factoryMap[Y]):
-                    if factoryMap[Y][X+i] == '@':
-                        count += 1
+                #
+                #  o
+                # xxx
 
-            if count < 4:
-                rolls += 1
+                for i in range(-1, 2):
+                    if Y+1 < len(factoryMap) and X+i >=0 and X+i < len(factoryMap[Y]):
+                        if factoryMap[Y+1][X+i] == '@':
+                            count += 1
 
-print(factoryMap)
+                #
+                # xox
+                #
+
+                for i in range(-1, 2):
+                    if X+i >= 0 and X+i < len(factoryMap[Y]):
+                        if factoryMap[Y][X+i] == '@':
+                            count += 1
+
+                if count < 4:
+                    rolls += 1
+                    result += 1
+                    to_remove.append(list([Y,X]))
+
+    for i in to_remove:
+        factoryMap[i[0]][i[1]] = '.'
+
+    if rolls == 0:
+        break
+
+print(result)

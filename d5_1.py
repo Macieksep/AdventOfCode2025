@@ -2,7 +2,7 @@ freshID = []
 
 count = 0
 
-with open("resources/f5_1", "r") as file:
+with open("resources/f5", "r") as file:
     for currLine in file:
 
         currLine = currLine.strip()

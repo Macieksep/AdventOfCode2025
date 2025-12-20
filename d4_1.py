@@ -1,7 +1,7 @@
 # Y X
 factoryMap = []
 
-with open("resources/f4_1", "r") as f:
+with open("resources/f4", "r") as f:
     for l in f:
         r = list(l.strip())
         factoryMap.append(r)
