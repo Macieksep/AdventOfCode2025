@@ -2,7 +2,7 @@ import re
 
 nums = list()
 
-with open("resources/f6_1", "r") as file:
+with open("resources/f6", "r") as file:
 
     for l in file:
         nums.append(re.findall("[0-9*+]+", l))
